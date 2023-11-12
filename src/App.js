@@ -14,7 +14,7 @@ const App = () => {
       })
       .then((response) => {
         console.log("Prediction Result:", response.data);
-        // Handle the response as needed
+        setResponses(response.data.risk);
       })
       .catch((error) => {
         console.error("Error making POST request:", error);
@@ -32,6 +32,13 @@ const App = () => {
       <p>Latitude: {coordinates.lat}</p>
       <p>Longitude: {coordinates.lng}</p>
       <button onClick={handleButtonClick}>Submit Coordinates</button>
+      {responses && (
+        <>
+          <p>300m {responses["300m"]}</p>
+          <p>500m {responses["500m"]}</p>
+          <p>1000m {responses["1000m"]}</p>
+        </>
+      )}
     </div>
   );
 };
