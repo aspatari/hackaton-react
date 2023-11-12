@@ -8,10 +8,10 @@ const App = () => {
   const handleButtonClick = () => {
     // Make a POST request to the specified URL
     axios
-      .post(
-        "https://orange-hackaton-5d9e11d28c53.herokuapp.com/predict",
-        coordinates
-      )
+      .post("https://orange-hackaton-5d9e11d28c53.herokuapp.com/predict", {
+        lon: coordinates.lng,
+        lat: coordinates.lat,
+      })
       .then((response) => {
         console.log("Prediction Result:", response.data);
         // Handle the response as needed
