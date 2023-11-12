@@ -8,7 +8,7 @@ const Map = ({ onMapClick }) => {
 
   useEffect(() => {
     // Initialize the map
-    const map = L.map(mapRef.current).setView([0, 0], 2);
+    const map = L.map(mapRef.current).setView([47.4116, 28.3699], 8); // Adjust zoom level as needed
 
     // Add a tile layer (you can use your preferred tile layer)
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
