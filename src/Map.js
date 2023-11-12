@@ -3,12 +3,15 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import React, { useEffect, useRef } from "react";
 
-const Map = ({ onMapClick }) => {
+const Map = ({ onMapClick, coordinates }) => {
   const mapRef = useRef(null);
 
   useEffect(() => {
     // Initialize the map
-    const map = L.map(mapRef.current).setView([47.4116, 28.3699], 8); // Adjust zoom level as needed
+    const map = L.map(mapRef.current).setView(
+      [coordinates.lat, coordinates.lng],
+      11
+    ); // Adjust zoom level as needed
 
     // Add a tile layer (you can use your preferred tile layer)
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
